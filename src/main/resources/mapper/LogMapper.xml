@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.log.demo_log.mapper.LogMapper">
+
+    <resultMap id="map" type="com.log.demo_log.entity.Log">
+        <id column="id" property="id" />
+        <result column="date_log" property="dateLog"/>
+        <result column="work" property="work"/>
+    </resultMap>
+
+    <select id="getLogInfo" resultMap="map">
+        select * from log
+    </select>
+
+    <select id="getLogInfoByDate" resultMap="map">
+        select * from log where date_log = #{date_log}
+    </select>
+
+    <select id="getLogList" resultMap="map">
+        select * from log
+    </select>
+
+    <select id="getLogListByDate" parameterType="String" resultMap="map">
+        select * from log where date_log = #{logDate}
+    </select>
+
+    <insert id="addLog">
+        insert into log (date_log,work) value (#{logDate},#{work})
+    </insert>
+</mapper>

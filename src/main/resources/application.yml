@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    username: root
+    password: gxs666!!!
+    url: jdbc:mysql://shenzhen.guixiansong.xyz:56789/log?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: provider-demo-log
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.log.demo_log.entity
+
+
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper: debug
+
+server:
+  port: 8082
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://shenzhen.guixiansong.xyz:11111/eureka/
